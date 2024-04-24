@@ -9,7 +9,7 @@
 | `Articles`                  | Kelly        | kmflippo       |
 ```
 
-# STARTER-team02
+# Team02-s24-4pm-2
 
 Instructions: <https://ucsb-cs156.github.io/s24/lab/team02.html>
 
