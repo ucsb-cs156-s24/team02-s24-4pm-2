@@ -1,3 +1,14 @@
+```
+| Table                       | Team Member  | Github Id      |
+|-----------------------------|--------------|----------------|
+| `UCSBDiningCommonsMenuItem` | Kriteen      | kriteenshrestha|
+| `UCSBOrganization`          | Yusheng      | WhrainySu      |
+| `RecommendationRequest`     | Kai          | kai-maeda      |
+| `MenuItemReview`            | Julia        | jchanDev       |
+| `HelpRequest`               | Evan         | evanja57       |
+| `Articles`                  | Kelly        | kmflippo       |
+```
+
 # STARTER-team02
 
 Instructions: <https://ucsb-cs156.github.io/s24/lab/team02.html>
