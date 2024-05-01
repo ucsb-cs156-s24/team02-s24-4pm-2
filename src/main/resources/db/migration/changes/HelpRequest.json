@@ -1,0 +1,80 @@
+{ "databaseChangeLog": [
+  {
+    "changeSet": {
+      "id": "HelpRequest-1",
+      "author": "evanja",
+      "preConditions": [
+        {
+          "onFail": "MARK_RAN"
+        },
+        {
+          "not": [
+            {
+              "tableExists": {
+                "tableName": "HELPREQUESTS"
+              }
+            }
+          ]
+        }
+      ],
+      "changes": [
+        {
+          "createTable": {
+            "columns": [
+              {
+                "column": {
+                  "autoIncrement": true,
+                  "constraints": {
+                    "primaryKey": true,
+                    "primaryKeyName": "CONSTRAINT_45138"
+                  },
+                  "name": "ID",
+                  "type": "BIGINT"
+                }
+              },
+              {
+                "column": {
+                  "name": "EXPLINATION",
+                  "type": "VARCHAR(255)"
+                }
+              },
+              {
+                "column": {
+                  "name": "REQUEST_TIME",
+                  "type": "TIMESTAMP"
+                }
+              },
+              {
+                "column": {
+                  "name": "REQUESTER_EMAIL",
+                  "type": "VARCHAR(255)"
+                }
+              },
+              {
+                "column": {
+                  "constraints": {
+                    "nullable": false
+                  },
+                  "name": "SOLVED",
+                  "type": "BOOLEAN"
+                }
+              },
+              {
+                "column": {
+                  "name": "TABLE_OR_BREAKOUT_ROOM",
+                  "type": "VARCHAR(255)"
+                }
+              },
+              {
+                "column": {
+                  "name": "TEAM_ID",
+                  "type": "VARCHAR(255)"
+                }
+              }]
+            ,
+            "tableName": "HELPREQUESTS"
+          }
+        }]
+    }
+  }
+]}
