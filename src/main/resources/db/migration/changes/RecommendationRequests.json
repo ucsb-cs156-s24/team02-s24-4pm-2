@@ -2,7 +2,7 @@
     "databaseChangeLog": [
       {
         "changeSet": {
-          "id": "RecommendationRequest-1",
+          "id": "RecommendationRequests-1",
           "author": "KaiM",
           "preConditions": [
             {
@@ -12,7 +12,7 @@
               "not": [
                 {
                   "tableExists": {
-                    "tableName": "RECOMMENDATIONREQUEST"
+                    "tableName": "RECOMMENDATIONREQUESTS"
                   }
                 }
               ]
@@ -27,7 +27,7 @@
                       "autoIncrement": true,
                       "constraints": {
                         "primaryKey": true,
-                        "primaryKeyName": "CONSTRAINT_9"
+                        "primaryKeyName": "CONSTRAINT_10"
                       },
                       "name": "ID",
                       "type": "BIGINT"
@@ -70,7 +70,7 @@
                     }
                   }
                 ],
-                "tableName": "RECOMMENDATIONREQUEST"
+                "tableName": "RECOMMENDATIONREQUESTS"
               }
             }
           ]
