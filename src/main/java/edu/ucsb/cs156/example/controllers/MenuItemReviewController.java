@@ -49,7 +49,7 @@ public class MenuItemReviewController extends ApiController {
     public MenuItemReview postReview(
         @Parameter(name="itemId") @RequestParam Long itemId,
         @Parameter(name="reviewerEmail") @RequestParam String reviewerEmail,
-        @Parameter(name="stars") @RequestParam int stars,
+        @Parameter(name="star") @RequestParam int star,
         @Parameter(name="comments") @RequestParam String comments,
         @Parameter(name="dateReviewed") @RequestParam("dateReviewed") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateReviewed)
         throws JsonProcessingException{
@@ -58,7 +58,7 @@ public class MenuItemReviewController extends ApiController {
         MenuItemReview review = new MenuItemReview();
         review.setItemId(itemId);
         review.setReviewerEmail(reviewerEmail);
-        review.setStar(stars);
+        review.setStar(star);
         review.setDateReviewed(dateReviewed);
         review.setComments(comments);
 
@@ -83,7 +83,7 @@ public class MenuItemReviewController extends ApiController {
     @GetMapping("/byItemId")
     public Iterable<MenuItemReview> getByItemId(
         @Parameter(name="itemId") @RequestParam Long itemId) {
-            Iterable<MenuItemReview> reviews = menuItemReviewRepository.findAllReviewsForItem(itemId);
+            Iterable<MenuItemReview> reviews = menuItemReviewRepository.findAllReviewsByItemId(itemId);
         return reviews;
     }
 
