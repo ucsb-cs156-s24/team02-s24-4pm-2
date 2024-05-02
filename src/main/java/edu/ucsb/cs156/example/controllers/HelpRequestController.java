@@ -12,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import org.hibernate.boot.model.source.internal.hbm.Helper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -74,5 +75,27 @@ public class HelpRequestController extends ApiController {
         HelpRequest savedHelpRequest = helpRequestRepository.save(helpRequest);
 
         return savedHelpRequest;
+    }
+
+    @Operation(summary= "Update a single help request")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    @PutMapping("")
+    public HelpRequest updateHelpRequest(
+            @Parameter(name="id") @RequestParam Long id,
+            @RequestBody @Valid HelpRequest incoming) {
+
+        HelpRequest helpRequest = helpRequestRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException(HelpRequest.class, id));
+
+        helpRequest.setRequesterEmail(incoming.getRequesterEmail());
+        helpRequest.setTeamId(incoming.getTeamId());
+        helpRequest.setTableOrBreakoutRoom(incoming.getTableOrBreakoutRoom());
+        helpRequest.setRequestTime(incoming.getRequestTime());
+        helpRequest.setExplination(incoming.getExplination());
+        helpRequest.setSolved(incoming.getSolved());
+
+        helpRequestRepository.save(helpRequest);
+
+        return helpRequest;
     }
 }
