@@ -39,6 +39,8 @@ import javax.validation.Valid;
 <span class="fc" id="L39">        return commons;</span>
     }
 
+    //
+
     @Operation(summary= &quot;Create a new commons&quot;)
     @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
     @PostMapping(&quot;/post&quot;)
@@ -53,18 +55,18 @@ import javax.validation.Valid;
         )
         {
 
-<span class="fc" id="L56">        UCSBDiningCommons commons = new UCSBDiningCommons();</span>
-<span class="fc" id="L57">        commons.setCode(code);</span>
-<span class="fc" id="L58">        commons.setName(name);</span>
-<span class="fc" id="L59">        commons.setHasSackMeal(hasSackMeal);</span>
-<span class="fc" id="L60">        commons.setHasTakeOutMeal(hasTakeOutMeal);</span>
-<span class="fc" id="L61">        commons.setHasDiningCam(hasDiningCam);</span>
-<span class="fc" id="L62">        commons.setLatitude(latitude);</span>
-<span class="fc" id="L63">        commons.setLongitude(longitude);</span>
+<span class="fc" id="L58">        UCSBDiningCommons commons = new UCSBDiningCommons();</span>
+<span class="fc" id="L59">        commons.setCode(code);</span>
+<span class="fc" id="L60">        commons.setName(name);</span>
+<span class="fc" id="L61">        commons.setHasSackMeal(hasSackMeal);</span>
+<span class="fc" id="L62">        commons.setHasTakeOutMeal(hasTakeOutMeal);</span>
+<span class="fc" id="L63">        commons.setHasDiningCam(hasDiningCam);</span>
+<span class="fc" id="L64">        commons.setLatitude(latitude);</span>
+<span class="fc" id="L65">        commons.setLongitude(longitude);</span>
 
-<span class="fc" id="L65">        UCSBDiningCommons savedCommons = ucsbDiningCommonsRepository.save(commons);</span>
+<span class="fc" id="L67">        UCSBDiningCommons savedCommons = ucsbDiningCommonsRepository.save(commons);</span>
 
-<span class="fc" id="L67">        return savedCommons;</span>
+<span class="fc" id="L69">        return savedCommons;</span>
     }
 
     @Operation(summary= &quot;Get a single commons&quot;)
@@ -72,10 +74,10 @@ import javax.validation.Valid;
     @GetMapping(&quot;&quot;)
     public UCSBDiningCommons getById(
             @Parameter(name=&quot;code&quot;) @RequestParam String code) {
-<span class="fc" id="L75">        UCSBDiningCommons commons = ucsbDiningCommonsRepository.findById(code)</span>
-<span class="fc" id="L76">                .orElseThrow(() -&gt; new EntityNotFoundException(UCSBDiningCommons.class, code));</span>
+<span class="fc" id="L77">        UCSBDiningCommons commons = ucsbDiningCommonsRepository.findById(code)</span>
+<span class="fc" id="L78">                .orElseThrow(() -&gt; new EntityNotFoundException(UCSBDiningCommons.class, code));</span>
 
-<span class="fc" id="L78">        return commons;</span>
+<span class="fc" id="L80">        return commons;</span>
     }
 
     @Operation(summary= &quot;Delete a UCSBDiningCommons&quot;)
@@ -83,11 +85,11 @@ import javax.validation.Valid;
     @DeleteMapping(&quot;&quot;)
     public Object deleteCommons(
             @Parameter(name=&quot;code&quot;) @RequestParam String code) {
-<span class="fc" id="L86">        UCSBDiningCommons commons = ucsbDiningCommonsRepository.findById(code)</span>
-<span class="fc" id="L87">                .orElseThrow(() -&gt; new EntityNotFoundException(UCSBDiningCommons.class, code));</span>
+<span class="fc" id="L88">        UCSBDiningCommons commons = ucsbDiningCommonsRepository.findById(code)</span>
+<span class="fc" id="L89">                .orElseThrow(() -&gt; new EntityNotFoundException(UCSBDiningCommons.class, code));</span>
 
-<span class="fc" id="L89">        ucsbDiningCommonsRepository.delete(commons);</span>
-<span class="fc" id="L90">        return genericMessage(&quot;UCSBDiningCommons with id %s deleted&quot;.formatted(code));</span>
+<span class="fc" id="L91">        ucsbDiningCommonsRepository.delete(commons);</span>
+<span class="fc" id="L92">        return genericMessage(&quot;UCSBDiningCommons with id %s deleted&quot;.formatted(code));</span>
     }
 
     @Operation(summary= &quot;Update a single commons&quot;)
@@ -97,20 +99,20 @@ import javax.validation.Valid;
             @Parameter(name=&quot;code&quot;) @RequestParam String code,
             @RequestBody @Valid UCSBDiningCommons incoming) {
 
-<span class="fc" id="L100">        UCSBDiningCommons commons = ucsbDiningCommonsRepository.findById(code)</span>
-<span class="fc" id="L101">                .orElseThrow(() -&gt; new EntityNotFoundException(UCSBDiningCommons.class, code));</span>
+<span class="fc" id="L102">        UCSBDiningCommons commons = ucsbDiningCommonsRepository.findById(code)</span>
+<span class="fc" id="L103">                .orElseThrow(() -&gt; new EntityNotFoundException(UCSBDiningCommons.class, code));</span>
 
 
-<span class="fc" id="L104">        commons.setName(incoming.getName());  </span>
-<span class="fc" id="L105">        commons.setHasSackMeal(incoming.getHasSackMeal());</span>
-<span class="fc" id="L106">        commons.setHasTakeOutMeal(incoming.getHasTakeOutMeal());</span>
-<span class="fc" id="L107">        commons.setHasDiningCam(incoming.getHasDiningCam());</span>
-<span class="fc" id="L108">        commons.setLatitude(incoming.getLatitude());</span>
-<span class="fc" id="L109">        commons.setLongitude(incoming.getLongitude());</span>
+<span class="fc" id="L106">        commons.setName(incoming.getName());  </span>
+<span class="fc" id="L107">        commons.setHasSackMeal(incoming.getHasSackMeal());</span>
+<span class="fc" id="L108">        commons.setHasTakeOutMeal(incoming.getHasTakeOutMeal());</span>
+<span class="fc" id="L109">        commons.setHasDiningCam(incoming.getHasDiningCam());</span>
+<span class="fc" id="L110">        commons.setLatitude(incoming.getLatitude());</span>
+<span class="fc" id="L111">        commons.setLongitude(incoming.getLongitude());</span>
 
-<span class="fc" id="L111">        ucsbDiningCommonsRepository.save(commons);</span>
+<span class="fc" id="L113">        ucsbDiningCommonsRepository.save(commons);</span>
 
-<span class="fc" id="L113">        return commons;</span>
+<span class="fc" id="L115">        return commons;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
