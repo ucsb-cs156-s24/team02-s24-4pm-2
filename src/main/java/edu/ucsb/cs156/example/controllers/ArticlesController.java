@@ -84,7 +84,7 @@ public class ArticlesController extends ApiController {
 
         return article;
     }
-
+/*
     @Operation(summary= "Delete an Article")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("")
@@ -97,7 +97,7 @@ public class ArticlesController extends ApiController {
         return genericMessage("Article with id %s deleted".formatted(id));
     }
 
-/*
+
     @Operation(summary= "Update a single article")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("")
