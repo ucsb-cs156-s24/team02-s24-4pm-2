@@ -72,7 +72,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                 verify(ucsbOrganizationRepository, times(1)).findById(eq("nonexistent"));
                 Map<String, Object> json = responseToJson(response);
                 assertEquals("EntityNotFoundException", json.get("type"));
-                assertEquals("UCSBOrganization with orgCode nonexistent not found", json.get("message"));
+                assertEquals("UCSBOrganization with id nonexistent not found", json.get("message"));
         }
 
         @WithMockUser(roles = { "USER" })
@@ -236,7 +236,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                 // assert
                 verify(ucsbOrganizationRepository, times(1)).findById("NONEXISTANT");
                 Map<String, Object> json = responseToJson(response);
-                assertEquals("UCSBOrganization with orgCode NONEXISTANT not found", json.get("message"));
+                assertEquals("UCSBOrganization with id NONEXISTANT not found", json.get("message"));
         }
 
         // Tests for PUT /api/ucsbdiningcommons?...
@@ -309,7 +309,7 @@ public class UCSBOrganizationControllerTests extends ControllerTestCase {
                 // assert
                 verify(ucsbOrganizationRepository, times(1)).findById("FAKE");
                 Map<String, Object> json = responseToJson(response);
-                assertEquals("UCSBOrganization with orgCode FAKE not found", json.get("message"));
+                assertEquals("UCSBOrganization with id FAKE not found", json.get("message"));
 
         }
 }

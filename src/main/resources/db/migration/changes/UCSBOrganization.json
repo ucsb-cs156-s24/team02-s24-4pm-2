@@ -1,60 +1,59 @@
 { "databaseChangeLog": [
-    {
-        "changeSet": {
-          "id": "UCSBOrganization-1",
-          "author": "YS",
-          "preConditions": [
-            {
-              "onFail": "MARK_RAN"
-            },
-            {
-              "not": [
+  {
+      "changeSet": {
+        "id": "UCSBOrganization-1",
+        "author": "YS",
+        "preConditions": [
+          {
+            "onFail": "MARK_RAN"
+          },
+          {
+            "not": [
+              {
+                "tableExists": {
+                  "tableName": "UCSBOrganization"
+                }
+              }
+            ]
+          }
+        ],
+        "changes": [
+          {
+            "createTable": {
+              "columns": [
                 {
-                  "tableExists": {
-                    "tableName": "UCSBOrganization"
+                  "column": {
+                    "autoIncrement": true,
+                    "constraints": {
+                      "primaryKey": true,
+                      "primaryKeyName": "CONSTRAINT_23"
+                    },
+                    "name": "ORG_CODE",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "ORG_TRANSLATIONSHORT",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "ORG_TRANSLATION",
+                    "type": "VARCHAR(255)"
+                  }
+                },
+                {
+                  "column": {
+                    "name": "INACTIVE",
+                    "type": "BOOLEAN"
                   }
                 }
-              ]
+              ],
+              "tableName": "UCSBOrganization"
             }
-          ],
-          "changes": [
-            {
-              "createTable": {
-                "columns": [
-                  {
-                    "column": {
-                      "autoIncrement": true,
-                      "constraints": {
-                        "primaryKey": true,
-                        "primaryKeyName": "CONSTRAINT_23"
-                      },
-                      "name": "orgCode",
-                      "type": "VARCHAR(255)"
-                    }
-                  },
-                  {
-                    "column": {
-                      "name": "orgTranslationShort",
-                      "type": "VARCHAR(255)"
-                    }
-                  },
-                  {
-                    "column": {
-                      "name": "orgTranslation",
-                      "type": "VARCHAR(255)"
-                    }
-                  },
-                  {
-                    "column": {
-                      "name": "inactive",
-                      "type": "BOOLEAN"
-                    }
-                  }
-                ],
-                "tableName": "UCSBOrganization"
-              }
-            }]
-
-        }
-    }
+          }]
+      }
+  }
 ]}
