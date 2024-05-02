@@ -39,6 +39,8 @@ public class UCSBDiningCommonsController extends ApiController {
         return commons;
     }
 
+    //
+
     @Operation(summary= "Create a new commons")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
