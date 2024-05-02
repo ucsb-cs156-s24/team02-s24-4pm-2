@@ -48,9 +48,9 @@ public class UCSBDatesController extends ApiController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public UCSBDate postUCSBDate(
-            @Parameter(name="quarterYYYYQ") @RequestParam String quarterYYYYQ,
-            @Parameter(name="name") @RequestParam String name,
-            @Parameter(name="localDateTime") @RequestParam("localDateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime localDateTime)
+            @Parameter(name = "quarterYYYYQ") @RequestParam String quarterYYYYQ,
+            @Parameter(name = "name") @RequestParam String name,
+            @Parameter(name = "localDateTime") @RequestParam("localDateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime localDateTime)
             throws JsonProcessingException {
 
         // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
@@ -68,7 +68,7 @@ public class UCSBDatesController extends ApiController {
         return savedUcsbDate;
     }
  
-    @Operation(summary= "Get a single date")
+    @Operation(summary = "Get a single date")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("")
     public UCSBDate getById(
