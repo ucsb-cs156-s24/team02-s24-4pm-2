@@ -21,8 +21,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 
-import java.time.LocalDateTime;
-
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -34,7 +32,7 @@ import static org.mockito.Mockito.when;
 
 @WebMvcTest(controllers = UCSBDiningCommonsMenuItemController.class)
 @Import(TestConfig.class)
-public class UCSBDiningCommonsMenuItemController extends ControllerTestCase {
+public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase {
 
         @MockBean
         UCSBDiningCommonsMenuItemRepository ucsbDiningCommonsMenuItemRepository;
@@ -42,7 +40,7 @@ public class UCSBDiningCommonsMenuItemController extends ControllerTestCase {
         @MockBean
         UserRepository userRepository;
 
-        // Tests for GET /api/ucsbdates/all
+        // Tests for GET /api/ucsbdiningcommonsmenuitem/all
         
         @Test
         public void logged_out_users_cannot_get_all() throws Exception {
@@ -66,7 +64,7 @@ public class UCSBDiningCommonsMenuItemController extends ControllerTestCase {
 
                 UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem1 = UCSBDiningCommonsMenuItem.builder()
                                 .diningCommonsCode("Ortega")
-                                .name("Chicken Caesar Salad")
+                                .name("ChickenCaesarSalad")
                                 .station("Entrees")
                                 .build();
 
@@ -74,14 +72,14 @@ public class UCSBDiningCommonsMenuItemController extends ControllerTestCase {
 
                 UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem2 = UCSBDiningCommonsMenuItem.builder()
                                 .diningCommonsCode("Ortega")
-                                .name("Pesto Pasta")
-                                .station("Entrees Special")
+                                .name("PestoPasta")
+                                .station("EntreesSpecial")
                                 .build();
 
                                 
 
-                ArrayList<UCSBDiningCommonsMenuItem> expectedDiningCommonsMenuItem = new ArrayList<>();
-                expectedDiningCommonsMenuItem.addAll(Arrays.asList(ucsbDiningCommonsMenuItem1, ucsbDiningCommonsMenuItem2));
+                ArrayList<UCSBDiningCommonsMenuItem> expectedDiningCommonsMenuItem = new ArrayList<>(Arrays.asList(ucsbDiningCommonsMenuItem1, ucsbDiningCommonsMenuItem2));
+                //expectedDiningCommonsMenuItem.addAll(Arrays.asList(ucsbDiningCommonsMenuItem1, ucsbDiningCommonsMenuItem2));
 
                 when(ucsbDiningCommonsMenuItemRepository.findAll()).thenReturn(expectedDiningCommonsMenuItem);
 
@@ -97,11 +95,11 @@ public class UCSBDiningCommonsMenuItemController extends ControllerTestCase {
                 assertEquals(expectedJson, responseString);
         }
 
-        // Tests for POST /api/ucsbdates/post...
+        // Tests for POST /api/ucsbdiningcommonsmenuitem/post...
 
         @Test
         public void logged_out_users_cannot_post() throws Exception {
-                mockMvc.perform(post("/api/ucsbdates/post"))
+                mockMvc.perform(post("/api/ucsbdiningcommonsmenuitem/post"))
                                 .andExpect(status().is(403));
         }
 
@@ -141,7 +139,7 @@ public class UCSBDiningCommonsMenuItemController extends ControllerTestCase {
                 assertEquals(expectedJson, responseString);
         }
 
-        // Tests for GET /api/ucsbdates?id=...
+        // Tests for GET /api/ucsbdiningcommonsmenuitem?id=...
 
         @Test
         public void logged_out_users_cannot_get_by_id() throws Exception {
@@ -197,15 +195,14 @@ public class UCSBDiningCommonsMenuItemController extends ControllerTestCase {
         }
 
 
-        // Tests for DELETE /api/ucsbdates?id=... 
+        // Tests for DELETE /api/ucsbdiningcommonsmenuitem?id=... 
 
         @WithMockUser(roles = { "ADMIN", "USER" })
         @Test
         public void admin_can_delete_a_diningcommonsmenuitem() throws Exception {
                 // arrange
 
-                //LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
-
+ 
                 UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItem1 = UCSBDiningCommonsMenuItem.builder()
                                 .diningCommonsCode("Ortega")
                                 .name("ChickenCaesarSalad")
@@ -248,25 +245,22 @@ public class UCSBDiningCommonsMenuItemController extends ControllerTestCase {
                 assertEquals("UCSBDiningCommonsMenuItem with id 15 not found", json.get("message"));
         }
 
-        // Tests for PUT /api/ucsbdates?id=... 
+        // Tests for PUT /api/ucsbdiningcommonsmenuitem?id=... 
 
         @WithMockUser(roles = { "ADMIN", "USER" })
         @Test
         public void admin_can_edit_an_existing_ucsbdiningcommonsmenuitem() throws Exception {
                 // arrange
-
-                // LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
-                // LocalDateTime ldt2 = LocalDateTime.parse("2023-01-03T00:00:00");
-
+ 
                 UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItemOrig = UCSBDiningCommonsMenuItem.builder()
                                 .diningCommonsCode("Ortega")
                                 .name("ChickenCaesarSalad")
                                 .station("Entrees")
                                 .build();
                 UCSBDiningCommonsMenuItem ucsbDiningCommonsMenuItemEdited = UCSBDiningCommonsMenuItem.builder()
-                                .diningCommonsCode("Ortega")
-                                .name("PestoPasta")
-                                .station("EntreeSpecials")
+                                .diningCommonsCode("Portola")
+                                .name("Soup")
+                                .station("Greens")
                                 .build();
 
                 String requestBody = mapper.writeValueAsString(ucsbDiningCommonsMenuItemEdited);
@@ -295,8 +289,7 @@ public class UCSBDiningCommonsMenuItemController extends ControllerTestCase {
         public void admin_cannot_edit_ucsbdiningcommonsmenuitem_that_does_not_exist() throws Exception {
                 // arrange
 
-                //LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
-
+ 
                 UCSBDiningCommonsMenuItem ucsbEditedDiningCommonsMenuItemCode = UCSBDiningCommonsMenuItem.builder()
                                     .diningCommonsCode("Orty")
                                     .name("PestoPasta")
