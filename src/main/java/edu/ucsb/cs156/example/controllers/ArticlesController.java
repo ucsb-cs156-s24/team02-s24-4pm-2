@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
 @RequestMapping("/api/articles")
 @RestController
 @Slf4j
-public class UCSBDatesController extends ApiController {
+public class ArticlesController extends ApiController {
 
     @Autowired
     ArticlesRepository articlesRepository;
@@ -58,14 +58,14 @@ public class UCSBDatesController extends ApiController {
         // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
         // See: https://www.baeldung.com/spring-date-parameters
 
-        log.info("localDateTime={}", dateAdded);
+        log.info("dateAdded={}", dateAdded);
 
         Articles article = new Articles();
         article.setTitle(title);
-        article.setURL(url);
+        article.setUrl(url);
         article.setExplanation(explanation);
         article.setEmail(email);
-        article.setLocalDateTime(dateAdded);
+        article.setDateAdded(dateAdded);
 
         Articles savedArticle = articlesRepository.save(article);
 

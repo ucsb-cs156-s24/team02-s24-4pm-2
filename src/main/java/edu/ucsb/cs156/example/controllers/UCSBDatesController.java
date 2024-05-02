@@ -67,7 +67,7 @@ public class UCSBDatesController extends ApiController {
 
         return savedUcsbDate;
     }
-
+ 
     @Operation(summary= "Get a single date")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("")
