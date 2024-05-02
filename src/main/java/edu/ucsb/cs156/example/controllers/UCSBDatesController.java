@@ -44,7 +44,7 @@ public class UCSBDatesController extends ApiController {
         return dates;
     }
 
-    @Operation(summary= "Create a new date")
+    @Operation(summary= "Create a new date") 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public UCSBDate postUCSBDate(
