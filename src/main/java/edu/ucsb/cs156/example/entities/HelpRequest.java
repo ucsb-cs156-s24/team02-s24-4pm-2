@@ -26,6 +26,6 @@ public class HelpRequest {
   private String teamId;
   private String tableOrBreakoutRoom;
   private LocalDateTime requestTime;
-  private String explination;
+  private String explanation;
   private boolean solved;
 }

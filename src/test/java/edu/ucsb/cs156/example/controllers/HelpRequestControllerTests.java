@@ -73,7 +73,7 @@ public class HelpRequestControllerTests extends ControllerTestCase {
                             .teamId("s24-4pm-2")
                             .tableOrBreakoutRoom("2")
                             .requestTime(ldt1)
-                            .explination("can't log in")
+                            .explanation("can't log in")
                             .solved(false)
                             .build();
 
@@ -84,7 +84,7 @@ public class HelpRequestControllerTests extends ControllerTestCase {
                             .teamId("s24-5pm-3")
                             .tableOrBreakoutRoom("5")
                             .requestTime(ldt2)
-                            .explination("lost computer")
+                            .explanation("lost computer")
                             .solved(true)
                             .build();
 
@@ -123,7 +123,7 @@ public class HelpRequestControllerTests extends ControllerTestCase {
                             .teamId("s24-5pm-3")
                             .tableOrBreakoutRoom("5")
                             .requestTime(ldt)
-                            .explination("lost computer")
+                            .explanation("lost computer")
                             .solved(true)
                             .build();
 
@@ -175,7 +175,7 @@ public class HelpRequestControllerTests extends ControllerTestCase {
                             .teamId("s24-5pm-3")
                             .tableOrBreakoutRoom("5")
                             .requestTime(ldt1)
-                            .explination("lost computer")
+                            .explanation("lost computer")
                             .solved(true)
                             .build();
 
@@ -243,7 +243,7 @@ public class HelpRequestControllerTests extends ControllerTestCase {
                             .teamId("s24-4pm-2")
                             .tableOrBreakoutRoom("2")
                             .requestTime(ldt1)
-                            .explination("lost")
+                            .explanation("lost")
                             .solved(true)
                             .build();
 
@@ -251,7 +251,7 @@ public class HelpRequestControllerTests extends ControllerTestCase {
 
             // act
             MvcResult response = mockMvc.perform(
-                            post("/api/HelpRequest/post?requesterEmail=evanja57@gmail.com&teamId=s24-4pm-2&tableOrBreakoutRoom=2&requestTime=2022-01-03T00:00:00&explination=lost&solved=true")
+                            post("/api/HelpRequest/post?requesterEmail=evanja57@gmail.com&teamId=s24-4pm-2&tableOrBreakoutRoom=2&requestTime=2022-01-03T00:00:00&explanation=lost&solved=true")
                                             .with(csrf()))
                             .andExpect(status().isOk()).andReturn();
 
@@ -278,7 +278,7 @@ public class HelpRequestControllerTests extends ControllerTestCase {
             .teamId("s24-4pm-2")
             .tableOrBreakoutRoom("2")
             .requestTime(ldt1)
-            .explination("lost")
+            .explanation("lost")
             .solved(true)
             .build();
 
@@ -287,7 +287,7 @@ public class HelpRequestControllerTests extends ControllerTestCase {
             .teamId("s24-8pm-4")
             .tableOrBreakoutRoom("17")
             .requestTime(ldt2)
-            .explination("too tired")
+            .explanation("too tired")
             .solved(false)
             .build();
 
@@ -324,7 +324,7 @@ public class HelpRequestControllerTests extends ControllerTestCase {
             .teamId("s24-8pm-4")
             .tableOrBreakoutRoom("17")
             .requestTime(ldt1)
-            .explination("too tired")
+            .explanation("too tired")
             .solved(false)
             .build();
 

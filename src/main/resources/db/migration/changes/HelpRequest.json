@@ -34,7 +34,7 @@
               },
               {
                 "column": {
-                  "name": "EXPLINATION",
+                  "name": "EXPLANATION",
                   "type": "VARCHAR(255)"
                 }
               },

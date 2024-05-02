@@ -55,7 +55,7 @@ public class HelpRequestController extends ApiController {
             @Parameter(name="teamId") @RequestParam String teamId,
             @Parameter(name="tableOrBreakoutRoom") @RequestParam String tableOrBreakoutRoom,
             @Parameter(name="requestTime") @RequestParam("requestTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime,
-            @Parameter(name="explination") @RequestParam String explination,
+            @Parameter(name="explanation") @RequestParam String explanation,
             @Parameter(name="solved") @RequestParam boolean solved
             )
             throws JsonProcessingException {
@@ -70,7 +70,7 @@ public class HelpRequestController extends ApiController {
         helpRequest.setTeamId(teamId);
         helpRequest.setTableOrBreakoutRoom(tableOrBreakoutRoom);
         helpRequest.setRequestTime(requestTime);
-        helpRequest.setExplination(explination);
+        helpRequest.setExplanation(explanation);
         helpRequest.setSolved(solved);
 
         HelpRequest savedHelpRequest = helpRequestRepository.save(helpRequest);
@@ -115,7 +115,7 @@ public class HelpRequestController extends ApiController {
         helpRequest.setTeamId(incoming.getTeamId());
         helpRequest.setTableOrBreakoutRoom(incoming.getTableOrBreakoutRoom());
         helpRequest.setRequestTime(incoming.getRequestTime());
-        helpRequest.setExplination(incoming.getExplination());
+        helpRequest.setExplanation(incoming.getExplanation());
         helpRequest.setSolved(incoming.getSolved());
 
         helpRequestRepository.save(helpRequest);
