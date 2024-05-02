@@ -76,7 +76,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase{
                 LocalDateTime reviewDate2 = LocalDateTime.parse("2022-03-11T00:00:00");
 
                 MenuItemReview menuItemReview2 = MenuItemReview.builder()
-                                .itemId((long)1)
+                                .itemId((long)2)
                                 .reviewerEmail("reviewer2@gmail.com")
                                 .star(5)
                                 .dateReviewed(reviewDate2)
@@ -264,7 +264,7 @@ public class MenuItemReviewControllerTests extends ControllerTestCase{
               LocalDateTime reviewDate1 = LocalDateTime.parse("2022-01-03T00:00:00");
 
               MenuItemReview menuItemReview1 = MenuItemReview.builder()
-                              .itemId((long)1)
+                              .itemId((long)2)
                               .reviewerEmail("reviewer1@gmail.com")
                               .star(4)
                               .dateReviewed(reviewDate1)
