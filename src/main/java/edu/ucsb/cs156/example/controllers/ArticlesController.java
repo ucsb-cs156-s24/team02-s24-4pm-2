@@ -36,7 +36,7 @@ public class ArticlesController extends ApiController {
     @Autowired
     ArticlesRepository articlesRepository;
 
-    @Operation(summary= "List all ucsb dates")
+    @Operation(summary= "List all ucsb articles")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/all")
     public Iterable<Articles> allArticles() {
