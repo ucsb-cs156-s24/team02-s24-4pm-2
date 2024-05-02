@@ -78,14 +78,6 @@ public class MenuItemReviewController extends ApiController {
         return review;
     }
 
-    @Operation(summary= "Get all reviews for a specific item")
-    @PreAuthorize("hasRole('ROLE_USER')")
-    @GetMapping("/byItemId")
-    public Iterable<MenuItemReview> getByItemId(
-        @Parameter(name="itemId") @RequestParam Long itemId) {
-            Iterable<MenuItemReview> reviews = menuItemReviewRepository.findAllReviewsByItemId(itemId);
-        return reviews;
-    }
 
     @Operation(summary= "Delete a review")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
