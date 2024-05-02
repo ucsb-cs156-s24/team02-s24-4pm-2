@@ -56,7 +56,7 @@ public class ArticlesController extends ApiController {
             throws JsonProcessingException {
 
             // (in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601)
-            
+
         // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
         // See: https://www.baeldung.com/spring-date-parameters
 
@@ -73,7 +73,7 @@ public class ArticlesController extends ApiController {
 
         return savedArticle;
     }
-/* 
+ 
     @Operation(summary= "Get an article")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("")
@@ -84,7 +84,7 @@ public class ArticlesController extends ApiController {
 
         return article;
     }
-
+/*
     @Operation(summary= "Delete an Article")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("")
