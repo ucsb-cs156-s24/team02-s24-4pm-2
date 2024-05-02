@@ -55,7 +55,7 @@ import java.time.LocalDateTime;
             @Parameter(name=&quot;teamId&quot;) @RequestParam String teamId,
             @Parameter(name=&quot;tableOrBreakoutRoom&quot;) @RequestParam String tableOrBreakoutRoom,
             @Parameter(name=&quot;requestTime&quot;) @RequestParam(&quot;requestTime&quot;) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime,
-            @Parameter(name=&quot;explination&quot;) @RequestParam String explination,
+            @Parameter(name=&quot;explanation&quot;) @RequestParam String explanation,
             @Parameter(name=&quot;solved&quot;) @RequestParam boolean solved
             )
             throws JsonProcessingException {
@@ -70,7 +70,7 @@ import java.time.LocalDateTime;
 <span class="fc" id="L70">        helpRequest.setTeamId(teamId);</span>
 <span class="fc" id="L71">        helpRequest.setTableOrBreakoutRoom(tableOrBreakoutRoom);</span>
 <span class="fc" id="L72">        helpRequest.setRequestTime(requestTime);</span>
-<span class="fc" id="L73">        helpRequest.setExplination(explination);</span>
+<span class="fc" id="L73">        helpRequest.setExplanation(explanation);</span>
 <span class="fc" id="L74">        helpRequest.setSolved(solved);</span>
 
 <span class="fc" id="L76">        HelpRequest savedHelpRequest = helpRequestRepository.save(helpRequest);</span>
@@ -115,7 +115,7 @@ import java.time.LocalDateTime;
 <span class="fc" id="L115">        helpRequest.setTeamId(incoming.getTeamId());</span>
 <span class="fc" id="L116">        helpRequest.setTableOrBreakoutRoom(incoming.getTableOrBreakoutRoom());</span>
 <span class="fc" id="L117">        helpRequest.setRequestTime(incoming.getRequestTime());</span>
-<span class="fc" id="L118">        helpRequest.setExplination(incoming.getExplination());</span>
+<span class="fc" id="L118">        helpRequest.setExplanation(incoming.getExplanation());</span>
 <span class="fc" id="L119">        helpRequest.setSolved(incoming.getSolved());</span>
 
 <span class="fc" id="L121">        helpRequestRepository.save(helpRequest);</span>
