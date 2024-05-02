@@ -74,9 +74,9 @@ public class ArticlesControllerTests extends ControllerTestCase {
                 LocalDateTime ldt2 = LocalDateTime.parse("2022-03-11T00:00:00");
 
                 Articles article2 = Articles.builder()
-                                .title("For third year in a row, Kings’ season ended by Edmonton")
+                                .title("For third year in a row, Kings season ended by Edmonton")
                                 .url("https://www.latimes.com/sports/hockey/kings/story/2024-05-01/kings-vs-edmonton-oilers-game-5-recap")
-                                .explanation("The Kings’ season expired Wednesday at 10:52 p.m.")
+                                .explanation("The Kings season expired Wednesday at 10:52 p.m.")
                                 .email("gaucho@gmail.com")
                                 .dateAdded(ldt2)
                                 .build();
@@ -120,7 +120,7 @@ public class ArticlesControllerTests extends ControllerTestCase {
 
                 LocalDateTime ldt1 = LocalDateTime.parse("2022-01-03T00:00:00");
 
-                Articles article1 = UCSBDate.builder()
+                Articles article1 = Articles.builder()
                                 .title("Fire_scorches_Huntington_Park")
                                 .url("https://www.latimes.com/california/story/2024-05-01/fire-scorches-huntington-park-fire-station-but-no-injuries-are-reported")
                                 .explanation("fire")
