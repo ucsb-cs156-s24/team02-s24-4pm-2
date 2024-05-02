@@ -65,13 +65,13 @@ public class UCSBDatesController extends ApiController {
         article.setURL(url);
         article.setExplanation(explanation);
         article.setEmail(email);
-        article.setLocalDateTime(localDateTime);
+        article.setLocalDateTime(dateAdded);
 
         Articles savedArticle = articlesRepository.save(article);
 
         return savedArticle;
     }
-
+/* 
     @Operation(summary= "Get an article")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("")
@@ -111,8 +111,9 @@ public class UCSBDatesController extends ApiController {
         article.setEmail(incoming.getEmail());
         article.setLocalDateTime(incoming.getLocalDateTime());
 
-        ucsbDateRepository.save(ucsbDate);
+        ucsbDateRepository.save(article);
 
-        return ucsbDate;
+        return article;
     }
+    */
 }
