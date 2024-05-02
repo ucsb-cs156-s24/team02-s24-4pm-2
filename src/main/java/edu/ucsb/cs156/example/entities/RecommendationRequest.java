@@ -29,6 +29,3 @@ public class RecommendationRequest {
     private LocalDateTime dateNeeded;
     private boolean done;
 }
-
-// entity is single row, repository is table
-// @Data automatically creates getters and setters
