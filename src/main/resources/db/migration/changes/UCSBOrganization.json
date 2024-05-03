@@ -11,7 +11,7 @@
             "not": [
               {
                 "tableExists": {
-                  "tableName": "UCSBOrganization"
+                  "tableName": "UCSBORGANIZATION"
                 }
               }
             ]
@@ -23,7 +23,6 @@
               "columns": [
                 {
                   "column": {
-                    "autoIncrement": true,
                     "constraints": {
                       "primaryKey": true,
                       "primaryKeyName": "CONSTRAINT_23"
@@ -34,7 +33,7 @@
                 },
                 {
                   "column": {
-                    "name": "ORG_TRANSLATIONSHORT",
+                    "name": "ORG_TRANSLATION_SHORT",
                     "type": "VARCHAR(255)"
                   }
                 },
@@ -51,7 +50,7 @@
                   }
                 }
               ],
-              "tableName": "UCSBOrganization"
+              "tableName": "UCSBORGANIZATION"
             }
           }]
       }
