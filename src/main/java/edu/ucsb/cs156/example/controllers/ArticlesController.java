@@ -36,7 +36,7 @@ public class ArticlesController extends ApiController {
     @Autowired
     ArticlesRepository articlesRepository;
 
-    @Operation(summary= "List all ucsb articles")
+    @Operation(summary = "List all ucsb articles")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("/all")
     public Iterable<Articles> allArticles() {
@@ -44,18 +44,19 @@ public class ArticlesController extends ApiController {
         return articles;
     }
 
-    @Operation(summary= "Create a new article")
+    @Operation(summary = "Create a new article")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public Articles postArticles(
-            @Parameter(name="title") @RequestParam String title,
-            @Parameter(name="url") @RequestParam String url,
+            @Parameter(name = "title") @RequestParam String title,
+            @Parameter(name = "url") @RequestParam String url,
             @Parameter(name = "explanation") @RequestParam String explanation,
             @Parameter(name = "email") @RequestParam String email,
-            @Parameter(name="dateAdded") @RequestParam("dateAdded") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateAdded)
+            @Parameter(name = "dateAdded") @RequestParam("dateAdded") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime dateAdded)
             throws JsonProcessingException {
 
-            // (in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601)
+        // (in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see
+        // https://en.wikipedia.org/wiki/ISO_8601)
 
         // For an explanation of @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
         // See: https://www.baeldung.com/spring-date-parameters
@@ -73,23 +74,23 @@ public class ArticlesController extends ApiController {
 
         return savedArticle;
     }
- 
-    @Operation(summary= "Get an article")
+
+    @Operation(summary = "Get an article")
     @PreAuthorize("hasRole('ROLE_USER')")
     @GetMapping("")
     public Articles getById(
-            @Parameter(name="id") @RequestParam Long id) {
+            @Parameter(name = "id") @RequestParam Long id) {
         Articles article = articlesRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(Articles.class, id));
 
         return article;
     }
 
-    @Operation(summary= "Delete an Article")
+    @Operation(summary = "Delete an Article")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("")
     public Object deleteArticle(
-            @Parameter(name="id") @RequestParam Long id) {
+            @Parameter(name = "id") @RequestParam Long id) {
         Articles article = articlesRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(Articles.class, id));
 
@@ -97,11 +98,11 @@ public class ArticlesController extends ApiController {
         return genericMessage("Article with id %s deleted".formatted(id));
     }
 
-    @Operation(summary= "Update a single article")
+    @Operation(summary = "Update a single article")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PutMapping("")
     public Articles updateArticle(
-            @Parameter(name="id") @RequestParam Long id,
+            @Parameter(name = "id") @RequestParam Long id,
             @RequestBody @Valid Articles incoming) {
 
         Articles article = articlesRepository.findById(id)
@@ -117,5 +118,6 @@ public class ArticlesController extends ApiController {
 
         return article;
     }
-    
+
 }
+// sdf
